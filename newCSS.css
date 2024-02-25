@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 26, 2021, 1:03:12 PM
+    Author     : garre
+*/
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background:#999;
+    border: black;
+}
+.btnRow{
+    display: inline-block;
+    border:black;
+    width: 100%;
+    height:20%;
+}
+.calcDiv{
+    background-color: White;
+    border: 2px solid black;
+    transform: translate(0, 50%);
+    margin: auto;
+    height: 50%;
+    width:25%;
+}
+.buttonContainer
+{
+
+    position:absolute;
+    bottom: 15px; 
+    margin: auto;
+    height: 80%;
+    width:100%;
+}
+.nBtn{
+    border: 2px solid black;
+    border-right: 0;
+    float:left;
+    background:#228B22;
+    font-size: 30px;
+    color: white;
+    width:25%;
+    height:100%;
+}
+.nBtn:hover{
+    background-color: black;
+    color:#228B22;
+}
+.zero{
+    border: 1px solid black;
+    border-right: 0;
+    float:left;
+    background:#228B22;
+    font-size: 30px;
+    color: white;
+    width:50%;
+    height:100%;
+}
+.zero:hover{
+    
+    background-color: black;
+    color:#228B22;
+    
+}
+.input {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    font-size:300%;
+}
+.inputDiv{
+    background-color:white;
+    width: 100%;
+    height: 20%;
+    font-size:400%;
+}
+.outputHeader {
+    position:fixed;
+}

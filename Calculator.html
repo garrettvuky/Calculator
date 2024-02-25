@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculator</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <link href="C:\Users\garre\Documents\NetBeansProjects\HTML5Application\public_html\newCSS.css" rel="stylesheet" type="text/css"><link/>
+        <link rel="stylesheet" href="C:\Users\garre\Documents\NetBeansProjects\HTML5Application\public_html\newCSS.css" type="text/css">
+        <h2 class="outputHeader" id="outputHeader"></h2>
+        <div class="calcDiv">
+            <div class="inputDiv" id="inputDiv">
+            </div>
+            <div id="btnDiv" class="buttonContainer" >
+                <div class="btnRow" id="btnRow1">
+                    <button class="nBtn" id="btnC"          type="submit" style="border-left: 0; width: 75%;">C</button>
+                    <button class="nBtn" id="btnDivide"     type="submit">/</button>
+                </div>
+                <div class="btnRow" id="btnRow2">
+                    <button class="nBtn" id="btn7"  type="submit" style="border-left:0">7</button>
+                    <button class="nBtn" id="btn8"  type="submit">8</button>
+                    <button class="nBtn" id="btn9"  type="submit">9</button>
+                    <button class="nBtn" id="btnX"  type="submit">*</button>
+                </div>
+                <div class="btnRow" id="btnRow3">
+                    <button class="nBtn" id="btn4"  type="submit" style="border-left:0">4</button>
+                    <button class="nBtn" id="btn5"  type="submit">5</button>
+                    <button class="nBtn" id="btn6"  type="submit">6</button>
+                    <button class="nBtn" id="btnMinus"  type="submit">-</button>
+                </div> 
+                <div class="btnRow" id="btnRow4">
+                    <button class="nBtn" id="btn1"      type="submit" style="border-left:0">1</button>
+                    <button class="nBtn" id="btn2"      type="submit">2</button>
+                    <button class="nBtn" id="btn3"      type="submit">3</button>
+                    <button class="nBtn" id="btnPlus"   type="submit">+</button>
+                </div>
+                    <div class="btnRow" id="btnRow5">
+                    <button class="zero" id="btn0"          type="submit" style="border-left:0;border-bottom:0;">0</button>
+                    <button class="nBtn" id="btnDecimal"    type="submit" style="border-bottom:0;">.</button>
+                    <button class="nBtn" id="btnEquals"     type="submit" style="border-bottom:0;">=</button>
+                </div>
+
+            </div>
+            
+        </div>      
+        <script>
+            
+            var InputDiv = document.getElementById('inputDiv').innerText;
+                var PushVal = document.getElementById('inputDiv').innerText;
+                var outputHeader = [document.getElementById('outputHeader').innerText];
+                
+                //grabs button elements
+                var btn1 = document.getElementById('btn1');
+                var btn2 = document.getElementById('btn2');
+                var btn3 = document.getElementById('btn3');
+                var btn4 = document.getElementById('btn4');
+                var btn5 = document.getElementById('btn5');
+                var btn6 = document.getElementById('btn6');
+                var btn7 = document.getElementById('btn7');
+                var btn8 = document.getElementById('btn8');
+                var btn9 = document.getElementById('btn9');
+                var btn0 = document.getElementById('btn0');
+                var btnC = document.getElementById('btnC');
+                var btnPlus = document.getElementById('btnPlus');
+                var btnMinus = document.getElementById('btnMinus');
+                var btnX = document.getElementById('btnX');
+                var btnDivide = document.getElementById('btnDivide');
+                var btnEquals = document.getElementById('btnEquals');
+                var btnDecimal = document.getElementById('btnDecimal');
+                var equation;
+                var formula;
+                
+                
+                var Text1 = document.getElementById('btn1').innerText;
+                var Text2 = document.getElementById('btn2').innerText;
+                var Text3 = document.getElementById('btn3').innerText;
+                var Text4 = document.getElementById('btn4').innerText;
+                var Text5 = document.getElementById('btn5').innerText;
+                var Text6 = document.getElementById('btn6').innerText;
+                var Text7 = document.getElementById('btn7').innerText;
+                var Text8 = document.getElementById('btn8').innerText;
+                var Text9 = document.getElementById('btn9').innerText;
+                var Text0 = document.getElementById('btn0').innerText;
+                var TextPlus = document.getElementById('btnPlus').innerText;
+                var TextMinus = document.getElementById('btnMinus').innerText;
+                var TextX = document.getElementById('btnX').innerText;
+                var TextDivide = document.getElementById('btnDivide').innerText;
+                var TextDecimal = document.getElementById('btnDecimal').innerText;
+              
+                
+                
+                
+                
+                
+                
+                 btn1.addEventListener("click", function(){pushButtons(Text1);});
+                 btn2.addEventListener("click", function(){pushButtons(Text2);});
+                 btn3.addEventListener("click", function(){pushButtons(Text3);});
+                 btn4.addEventListener("click", function(){pushButtons(Text4);});
+                 btn5.addEventListener("click", function(){pushButtons(Text5);});
+                 btn6.addEventListener("click", function(){pushButtons(Text6);});
+                 btn7.addEventListener("click", function(){pushButtons(Text7);});
+                 btn8.addEventListener("click", function(){pushButtons(Text8);});
+                 btn9.addEventListener("click", function(){pushButtons(Text9);});
+                 btn0.addEventListener("click", function(){pushButtons(Text0);});
+                 btnDecimal.addEventListener("click", function(){pushButtons(TextDecimal);});
+                 btnC.addEventListener("click",Clear);
+                 btnPlus.addEventListener("click", function(){pushButtons(TextPlus);});
+                 btnMinus.addEventListener("click", function(){pushButtons(TextMinus);});
+                 btnX.addEventListener("click", function(){pushButtons(TextX);});
+                 btnDivide.addEventListener("click", function(){pushButtons(TextDivide);});
+                 btnEquals.addEventListener("click", Equate);
+                 
+                 function pushButtons(pBtn)
+                 {
+                     document.getElementById('inputDiv').innerText += pBtn;
+                 }
+                 function Clear() {
+                     document.getElementById('inputDiv').innerText = "";
+                 }
+                 function Equate() {
+                     formula = document.getElementById('inputDiv').innerText;
+                     equation = eval(formula);
+                     document.getElementById('inputDiv').innerText = equation;
+                     document.getElementById('outputHeader').innerText += "   " + formula + " = " + equation.toString()+",";
+                 }
+                /*function  pushButtons(e) {
+                        if(e.target !== e.currentTarget) {
+                            var clickedItem = e.target.id;
+                            PushVal.push(clickedItem.innerText);
+                            document.getElementById('inputDiv').innerText += clickedItem;
+                            
+                        }
+                        e.stopPropagation();
+                }*/
+                
+           
+            
+            /*
+            //creates an array            var myArr = ["A","B","C"];
+
+            var myArr = ["A","B","C"];
+            
+            function pushData()
+            {
+                //get value from the input text
+                var inputText = document.getElementById('InputText').value;
+                var pval = "";
+                //append data to array
+                myArr.push( inputText);
+                
+              
+                for(i=0; i < myArr.length; i++)
+                {
+                    pval = pval + myArr[i] + "<br/>";
+                }
+                //display array data
+                document.getElementById('pushList').innerHTML = myArr + "<br/>";
+            }
+            */
+        </script>
+    </body>
+</html>
+
